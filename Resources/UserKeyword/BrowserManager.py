@@ -40,7 +40,8 @@ def open_browser(browser='',url=''):
         raise Exception("Please provide at least browser name")
 
 
-@keyword('open chrome with "${url}"')
+# @keyword('open chrome with "${url}"')
+@keyword
 def open_chrome_defaultProfile(url):
     
     user_dir = str(Path.home())+'/AppData/Local/Google/Chrome/User Data'
@@ -51,10 +52,10 @@ def open_chrome_defaultProfile(url):
     #adding Chrome Profile Path
     # chrome_options.add_argument('user-data-dir='+user_dir)
     # chrome_options.add_argument('--profile-directory=Profile 2')
-    chrome_options.add_argument('--disable-infobar')
-    chrome_options.add_argument('--window-size=900,600')
-    chrome_options.add_argument('--disable-blink-features=AutomationControlled')
-    chrome_options.add_argument('--disable-extensions')
+    # chrome_options.add_argument('--disable-infobar')
+    # chrome_options.add_argument('--window-size=900,600')
+    # chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+    # chrome_options.add_argument('--disable-extensions')
     #options.headless = headless_mode
 
     driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(),options=chrome_options)
