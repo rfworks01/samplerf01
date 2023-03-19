@@ -1,0 +1,18 @@
+{
+  "user1": [
+    {
+      "namme":"zim",
+      "zip": 443555
+    },
+    {
+      "namme":"nix",
+      "zip": 55646
+    }
+  ],
+  "user2": [
+    {
+      "namme":"alga",
+      "zip": 43467
+    }
+  ]
+}

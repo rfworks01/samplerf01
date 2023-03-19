@@ -1,0 +1,9 @@
+{
+  "test_case_name": "TS1_Right user wrong pass",
+  "arguments": {
+       "${username}": "demo",
+       "${password}": "FooBar"
+      },
+  "tags": ["2","3","foo"],
+  "documentation": "This test case has the Tags 2,3 and foo"
+}

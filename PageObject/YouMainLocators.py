@@ -1,0 +1,12 @@
+loginBTN = 'xpath://button[@data-testid=\'log-in-button\']'
+signupBTN = 'xpath://button[@data-testid=\'sign-up-button\']'
+userprofileBTN = 'xpath://button[@data-testid=\'UserSection-Dropdown\']'
+userprofileoptionsLIST = 'xpath://ul[@data-testid=\'user-dropdown-items\']'
+useremailTXT = "xpath://input[@id='1-email']"
+userpasswordTXT = "name=password"
+firstnameTXT = "id=1-first_name"
+lastnameTXT = "id=1-last_name"
+howhearELE = "id=1-how_hear"
+howhearLIST = "xpath=//div[@class='auth0-lock-list-code']/ul/li"
+howhearotherTXT = "id=1-how_hear_other_detail"
+signup_submitBTN = "css=button.auth0-lock-submit"

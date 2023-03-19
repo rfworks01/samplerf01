@@ -1,0 +1,2630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.1 on win32)" generated="20230213 21:18:05.249" rpa="false" schemaversion="3">
+<suite id="s1" name="SearchByAuthor" source="E:\VS-CodeProject\py2023\TestKeywordExample\Tests\sage\SearchByAuthor.robot">
+<kw name="Open app and set country" type="SETUP">
+<arg>${country}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<arg>url=${url}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230213 21:18:11.228" level="INFO">Opening browser 'chrome' to base url 'https://us.sagepub.com/en-us/nam/home'.</msg>
+<status status="PASS" starttime="20230213 21:18:11.228" endtime="20230213 21:18:20.112"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>6s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230213 21:18:26.114" level="INFO">Slept 6 seconds</msg>
+<status status="PASS" starttime="20230213 21:18:20.113" endtime="20230213 21:18:26.114"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${byCountryList}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 21:18:26.114" endtime="20230213 21:18:26.130"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${byCountryList}</arg>
+<arg>${country}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230213 21:18:26.130" level="INFO">Selecting options from selection list 'id=edit-country' by value US.</msg>
+<status status="PASS" starttime="20230213 21:18:26.130" endtime="20230213 21:18:26.225"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${byCountrySETBTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:26.227" level="INFO">Clicking element 'id=edit-set-location'.</msg>
+<status status="PASS" starttime="20230213 21:18:26.226" endtime="20230213 21:18:31.383"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Site opened</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:31.384" endtime="20230213 21:18:31.384"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:11.228" endtime="20230213 21:18:31.385"/>
+</kw>
+<test id="s1-t1" name="TC002_Get Books filter result without review copy" line="31">
+<kw name="Search book using author">
+<arg>jacob</arg>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>${bySearchTxtBox}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20230213 21:18:31.387" endtime="20230213 21:18:31.465"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${bySearchTxtBox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:31.466" level="INFO">Clicking element 'id=edit-keys-33'.</msg>
+<status status="PASS" starttime="20230213 21:18:31.465" endtime="20230213 21:18:31.534"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${bySearchTxtBox}</arg>
+<arg>${author_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:31.535" level="INFO">Typing text 'jacob' into text field 'id=edit-keys-33'.</msg>
+<status status="PASS" starttime="20230213 21:18:31.534" endtime="20230213 21:18:31.644"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${bySearchIcon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:31.645" level="INFO">Clicking element 'id=edit-submit--2'.</msg>
+<status status="PASS" starttime="20230213 21:18:31.645" endtime="20230213 21:18:39.626"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>7s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230213 21:18:46.628" level="INFO">Slept 7 seconds</msg>
+<status status="PASS" starttime="20230213 21:18:39.627" endtime="20230213 21:18:46.628"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:31.387" endtime="20230213 21:18:46.628"/>
+</kw>
+<kw name="filter boks not have review copy link">
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{reviewCopies}</var>
+<arg>${byReviewCopyTab}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.628" level="INFO">@{reviewCopies} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="1b818d84-0dad-4818-a048-06fc6396dfaf")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20230213 21:18:46.628" endtime="20230213 21:18:46.628"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${reviewCopyCount}</var>
+<arg>${reviewCopies}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230213 21:18:46.643" level="INFO">Length is 9</msg>
+<msg timestamp="20230213 21:18:46.643" level="INFO">${reviewCopyCount} = 9</msg>
+<status status="PASS" starttime="20230213 21:18:46.643" endtime="20230213 21:18:46.643"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>total review element: ${reviewCopyCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:46.643" endtime="20230213 21:18:46.643"/>
+</kw>
+<for flavor="IN">
+<var>${element}</var>
+<value>@{reviewCopies}</value>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="1b818d84-0dad-4818-a048-06fc6396dfaf")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviewLink}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.659" level="INFO">${reviewLink} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:46.643" endtime="20230213 21:18:46.659"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.643" endtime="20230213 21:18:46.659"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="7dde34b3-d4b5-41ca-a69f-6c9d7fd575d6")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviewLink}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.674" level="INFO">${reviewLink} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:46.659" endtime="20230213 21:18:46.674"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.659" endtime="20230213 21:18:46.674"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="0fdd0623-7975-4dca-8ab7-59bc75b82e16")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviewLink}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.690" level="INFO">${reviewLink} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:46.674" endtime="20230213 21:18:46.690"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.674" endtime="20230213 21:18:46.690"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="eb44b4cc-12ae-4df2-bcf8-45f40e69ccdf")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviewLink}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.690" level="INFO">${reviewLink} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:46.690" endtime="20230213 21:18:46.690"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.690" endtime="20230213 21:18:46.690"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="8616b9c6-5726-4cce-8cfc-3dcb9a74075d")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviewLink}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.721" level="INFO">${reviewLink} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:46.706" endtime="20230213 21:18:46.721"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.706" endtime="20230213 21:18:46.721"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="a1e34bb7-6ff2-4b2a-add1-7a2cd0309925")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviewLink}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.721" level="INFO">${reviewLink} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:46.721" endtime="20230213 21:18:46.721"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.721" endtime="20230213 21:18:46.721"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="eb8d87e6-4862-49ef-a4db-7712429fe62e")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviewLink}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.753" level="INFO">${reviewLink} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:46.737" endtime="20230213 21:18:46.753"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.737" endtime="20230213 21:18:46.753"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="7dfdcc9b-8178-47f2-9748-67ec59c67075")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviewLink}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.753" level="INFO">${reviewLink} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:46.753" endtime="20230213 21:18:46.753"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.753" endtime="20230213 21:18:46.753"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="fc90fee3-902d-453d-b88c-4850aae99765")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviewLink}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.768" level="INFO">${reviewLink} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:46.768" endtime="20230213 21:18:46.768"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.753" endtime="20230213 21:18:46.768"/>
+</iter>
+<status status="PASS" starttime="20230213 21:18:46.643" endtime="20230213 21:18:46.768"/>
+</for>
+<status status="PASS" starttime="20230213 21:18:46.628" endtime="20230213 21:18:46.768"/>
+</kw>
+<kw name="print result book title">
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{reviewCopies}</var>
+<arg>${byResultEle}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.784" level="INFO">@{reviewCopies} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="82432084-d0a1-416b-8830-7ed2b21de476")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20230213 21:18:46.784" endtime="20230213 21:18:46.784"/>
+</kw>
+<for flavor="IN">
+<var>${resultEle}</var>
+<value>@{reviewCopies}</value>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="82432084-d0a1-416b-8830-7ed2b21de476")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:46.804" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="fff611d6-af97-4aea-9c77-20aadf4c4ae8")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:46.784" endtime="20230213 21:18:46.804"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.820" level="INFO">${reviwLink} = Sigmund Freud</msg>
+<status status="PASS" starttime="20230213 21:18:46.804" endtime="20230213 21:18:46.820"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:46.820" endtime="20230213 21:18:46.820"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.784" endtime="20230213 21:18:46.820"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="bb994b1a-a9a1-42d4-9f96-143ab9864993")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:46.836" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="eedf2d99-9adb-47a2-aea0-c2ce9808ce43")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:46.820" endtime="20230213 21:18:46.836"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.851" level="INFO">${reviwLink} = D W Winnicott</msg>
+<status status="PASS" starttime="20230213 21:18:46.836" endtime="20230213 21:18:46.851"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:46.851" endtime="20230213 21:18:46.851"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.820" endtime="20230213 21:18:46.851"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="44196b2b-f39b-423b-ba46-252087ac0607")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:46.867" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="aaa5bc68-2fd6-466b-af96-b698cfebbba3")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:46.851" endtime="20230213 21:18:46.867"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.883" level="INFO">${reviwLink} = Using Published Data</msg>
+<status status="PASS" starttime="20230213 21:18:46.867" endtime="20230213 21:18:46.883"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:46.883" endtime="20230213 21:18:46.883"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.851" endtime="20230213 21:18:46.883"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="e663dd81-5c9c-4e2a-8349-80aed2cb5c79")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:46.898" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="04e9322c-b6f4-4e5b-a891-fd8f291875be")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:46.883" endtime="20230213 21:18:46.898"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.914" level="INFO">${reviwLink} = Psychodynamic Counselling in Action</msg>
+<status status="PASS" starttime="20230213 21:18:46.898" endtime="20230213 21:18:46.914"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:46.914" endtime="20230213 21:18:46.914"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.883" endtime="20230213 21:18:46.914"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="cba113d7-8480-4bb6-becc-8f74643eec2d")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:46.930" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="e30ac57f-0e5c-4c5e-b54a-b610f1595fd2")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:46.914" endtime="20230213 21:18:46.930"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.945" level="INFO">${reviwLink} = Play, Projects, and Preschool Standards</msg>
+<status status="PASS" starttime="20230213 21:18:46.930" endtime="20230213 21:18:46.945"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:46.945" endtime="20230213 21:18:46.945"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.914" endtime="20230213 21:18:46.945"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="ada1cc39-40ad-4fa3-92b5-bf11d2605029")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:46.961" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="d9754c54-87be-439f-be04-e81189996227")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:46.945" endtime="20230213 21:18:46.961"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:46.976" level="INFO">${reviwLink} = Reaching Standards and Beyond in Kindergarten</msg>
+<status status="PASS" starttime="20230213 21:18:46.961" endtime="20230213 21:18:46.976"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:46.976" endtime="20230213 21:18:46.976"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.945" endtime="20230213 21:18:46.976"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="32e149e6-e395-45cb-9097-5295f71a0983")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:46.992" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="f5de77b6-823d-4275-9ef7-87cc86afff4d")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:46.976" endtime="20230213 21:18:46.992"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.005" level="INFO">${reviwLink} = The SAGE Handbook of Conflict Resolution</msg>
+<status status="PASS" starttime="20230213 21:18:46.992" endtime="20230213 21:18:47.005"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.005" endtime="20230213 21:18:47.005"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:46.976" endtime="20230213 21:18:47.005"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="e2f6d478-86b5-4a86-95a7-b1cd38933c1c")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.021" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="11f7bb32-d0d0-4794-af38-62f8c2efa2fd")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.005" endtime="20230213 21:18:47.021"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.036" level="INFO">${reviwLink} = Regional Guide to International Conflict and Management from 1945 to 2003</msg>
+<status status="PASS" starttime="20230213 21:18:47.021" endtime="20230213 21:18:47.036"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.036" endtime="20230213 21:18:47.036"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.005" endtime="20230213 21:18:47.036"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="9b834323-19f9-44f3-bcc4-4bff2516488e")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.061" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="1c65430d-150b-4258-8813-5725e6c7bd7f")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.036" endtime="20230213 21:18:47.061"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.061" level="INFO">${reviwLink} = Psychology of Adjustment</msg>
+<status status="PASS" starttime="20230213 21:18:47.061" endtime="20230213 21:18:47.061"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.061" endtime="20230213 21:18:47.077"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.036" endtime="20230213 21:18:47.077"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="41583de9-edbb-49de-b37a-fa688f344cb7")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.092" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="db238b28-30bc-4e97-8de0-8909a071a34e")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.077" endtime="20230213 21:18:47.092"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.108" level="INFO">${reviwLink} = Mommies and Daddies on the Fast Track:</msg>
+<status status="PASS" starttime="20230213 21:18:47.092" endtime="20230213 21:18:47.108"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.108" endtime="20230213 21:18:47.108"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.077" endtime="20230213 21:18:47.108"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="4cb80ea4-392b-48b0-b379-3b9f32b3e505")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.121" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="d02d9ccf-caa2-41f9-ad6a-4d3e6b33bd52")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.108" endtime="20230213 21:18:47.121"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.137" level="INFO">${reviwLink} = The Teacher's Sourcebook for Cooperative Learning</msg>
+<status status="PASS" starttime="20230213 21:18:47.121" endtime="20230213 21:18:47.137"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.137" endtime="20230213 21:18:47.137"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.108" endtime="20230213 21:18:47.137"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="35f22a2c-c3d4-4d2c-a8a4-033cde8ba4fb")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.153" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="c937311e-9631-4dfd-aedd-09d4b7fe6f25")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.137" endtime="20230213 21:18:47.153"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.168" level="INFO">${reviwLink} = Schools and the Health of Children</msg>
+<status status="PASS" starttime="20230213 21:18:47.153" endtime="20230213 21:18:47.168"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.168" endtime="20230213 21:18:47.168"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.137" endtime="20230213 21:18:47.168"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="4e202d5a-9a4e-432c-b9a5-3fbc7ac8caa6")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.184" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="7a1687d8-57cd-4ec3-9f74-918226c77c36")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.168" endtime="20230213 21:18:47.184"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.203" level="INFO">${reviwLink} = The ANNALS of the American Academy of Political and Social Science</msg>
+<status status="PASS" starttime="20230213 21:18:47.184" endtime="20230213 21:18:47.203"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.204" endtime="20230213 21:18:47.204"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.168" endtime="20230213 21:18:47.205"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="c197fead-639e-44a7-a650-86b318c694fd")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.210" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="09c1c93d-e859-419c-bd6d-552b996e7040")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.205" endtime="20230213 21:18:47.210"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.225" level="INFO">${reviwLink} = Managing Multiculturalism in Substance Abuse Services</msg>
+<status status="PASS" starttime="20230213 21:18:47.210" endtime="20230213 21:18:47.225"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.225" endtime="20230213 21:18:47.225"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.205" endtime="20230213 21:18:47.225"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="19ad2e02-3f09-499d-a94b-89c21480bda0")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.241" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="c3bfae2d-3882-4f1a-8f99-6d3712ebcefb")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.225" endtime="20230213 21:18:47.241"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.257" level="INFO">${reviwLink} = Getting an Academic Job</msg>
+<status status="PASS" starttime="20230213 21:18:47.241" endtime="20230213 21:18:47.257"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.257" endtime="20230213 21:18:47.257"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.225" endtime="20230213 21:18:47.257"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="d134341f-34b1-45c0-803c-bad7dfb9ca2b")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.272" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="70f0e056-c99a-4d67-9f7f-6e538769756e")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.257" endtime="20230213 21:18:47.272"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.288" level="INFO">${reviwLink} = The African American Male in American Life and Thought</msg>
+<status status="PASS" starttime="20230213 21:18:47.272" endtime="20230213 21:18:47.288"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.288" endtime="20230213 21:18:47.288"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.257" endtime="20230213 21:18:47.288"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="4c677b16-fb45-477e-acad-d0c4c459ed1f")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.304" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="a43c2a69-26ac-4fd3-b74f-695360344000")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.288" endtime="20230213 21:18:47.304"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.319" level="INFO">${reviwLink} = Controversial Issues in Health Care Policy</msg>
+<status status="PASS" starttime="20230213 21:18:47.304" endtime="20230213 21:18:47.319"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.319" endtime="20230213 21:18:47.319"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.288" endtime="20230213 21:18:47.319"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="0cd4ca45-667e-400c-abdf-2fa1e5c4e027")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.335" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="c8eb58d4-cb3b-4142-88b0-df8cfdf8069d")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.319" endtime="20230213 21:18:47.335"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.350" level="INFO">${reviwLink} = Debates on U.S. Health Care</msg>
+<status status="PASS" starttime="20230213 21:18:47.335" endtime="20230213 21:18:47.350"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.350" endtime="20230213 21:18:47.350"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.319" endtime="20230213 21:18:47.350"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="18837795-23d8-47b6-966a-fa1c0525137c")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.366" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="cb61ce33-950d-44bf-869d-76e16b2fb55f")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.350" endtime="20230213 21:18:47.366"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.382" level="INFO">${reviwLink} = The Social Thought of Erving Goffman</msg>
+<status status="PASS" starttime="20230213 21:18:47.366" endtime="20230213 21:18:47.397"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.397" endtime="20230213 21:18:47.397"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.350" endtime="20230213 21:18:47.397"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="762d4bd3-2a66-4b15-80b2-ef37b12450ac")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.406" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="946025f4-b34a-496d-a528-76a5061cc0ac")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.397" endtime="20230213 21:18:47.406"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.422" level="INFO">${reviwLink} = Statistical Graphics for Visualizing Multivariate Data</msg>
+<status status="PASS" starttime="20230213 21:18:47.406" endtime="20230213 21:18:47.422"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.422" endtime="20230213 21:18:47.422"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.397" endtime="20230213 21:18:47.422"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="1aad3338-672e-4907-9f15-4fab25cc9731")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.437" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="5a6a3817-2fbf-4da0-a914-7669c613ad10")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.422" endtime="20230213 21:18:47.437"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.453" level="INFO">${reviwLink} = Statistical Graphics for Univariate and Bivariate Data</msg>
+<status status="PASS" starttime="20230213 21:18:47.437" endtime="20230213 21:18:47.453"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.453" endtime="20230213 21:18:47.453"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.422" endtime="20230213 21:18:47.453"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="b4a76bcc-bccf-4623-8f02-d2b849c83ccf")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.468" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="0046ef5d-0135-4678-bd84-d7140f6b3bfe")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.453" endtime="20230213 21:18:47.468"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.484" level="INFO">${reviwLink} = Data Theory and Dimensional Analysis</msg>
+<status status="PASS" starttime="20230213 21:18:47.468" endtime="20230213 21:18:47.484"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.484" endtime="20230213 21:18:47.484"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.453" endtime="20230213 21:18:47.484"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="a1bcdf59-5bbf-4851-8eed-4dd6ea4965fe")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.500" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="f231ae25-4def-4330-bb1d-e437d17e1e0a")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.484" endtime="20230213 21:18:47.500"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.531" level="INFO">${reviwLink} = The Logic of American Politics</msg>
+<status status="PASS" starttime="20230213 21:18:47.500" endtime="20230213 21:18:47.531"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.531" endtime="20230213 21:18:47.531"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.484" endtime="20230213 21:18:47.531"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="4903bea8-5205-4092-9928-74ba85bca84c")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[3]/a</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.547" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="ee416d95-12c0-4fd6-8788-62c2bea895d1")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.531" endtime="20230213 21:18:47.547"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwLink}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.562" level="INFO">${reviwLink} = Samuel Kernell</msg>
+<status status="PASS" starttime="20230213 21:18:47.547" endtime="20230213 21:18:47.562"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwLink}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.562" endtime="20230213 21:18:47.562"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.531" endtime="20230213 21:18:47.562"/>
+</iter>
+<status status="PASS" starttime="20230213 21:18:46.784" endtime="20230213 21:18:47.562"/>
+</for>
+<status status="PASS" starttime="20230213 21:18:46.768" endtime="20230213 21:18:47.562"/>
+</kw>
+<kw name="print review-node data">
+<kw name="Log To Console" library="BuiltIn">
+<arg>print review-copy link</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.562" endtime="20230213 21:18:47.562"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{reviewCopies}</var>
+<arg>${byResultEle}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.578" level="INFO">@{reviewCopies} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="82432084-d0a1-416b-8830-7ed2b21de476")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20230213 21:18:47.562" endtime="20230213 21:18:47.578"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${counter}</var>
+<arg>${1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230213 21:18:47.578" level="INFO">${counter} = 1</msg>
+<status status="PASS" starttime="20230213 21:18:47.578" endtime="20230213 21:18:47.578"/>
+</kw>
+<for flavor="IN">
+<var>${resultEle}</var>
+<value>@{reviewCopies}</value>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="82432084-d0a1-416b-8830-7ed2b21de476")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.602" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="fc9c1df0-5a35-4630-a6ba-83245aa3d25e")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.578" endtime="20230213 21:18:47.602"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.606" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:47.602" endtime="20230213 21:18:47.606"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.606" endtime="20230213 21:18:47.606"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:47.622" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:47.606" endtime="20230213 21:18:47.622"/>
+</kw>
+<msg timestamp="20230213 21:18:47.622" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:47.606" endtime="20230213 21:18:47.622"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.622" endtime="20230213 21:18:47.622"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:47.622" level="INFO">${pos} = 0</msg>
+<status status="PASS" starttime="20230213 21:18:47.622" endtime="20230213 21:18:47.622"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.622" endtime="20230213 21:18:47.622"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.622" endtime="20230213 21:18:47.622"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.622" endtime="20230213 21:18:47.622"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.622" level="INFO">${counter} = 2</msg>
+<status status="PASS" starttime="20230213 21:18:47.622" endtime="20230213 21:18:47.622"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.578" endtime="20230213 21:18:47.622"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="bb994b1a-a9a1-42d4-9f96-143ab9864993")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.638" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="71b372b2-0c87-41b2-ac59-eb8ca878b9bd")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.622" endtime="20230213 21:18:47.638"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.653" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:47.638" endtime="20230213 21:18:47.653"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.653" endtime="20230213 21:18:47.653"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:47.653" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:47.653" endtime="20230213 21:18:47.653"/>
+</kw>
+<msg timestamp="20230213 21:18:47.653" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:47.653" endtime="20230213 21:18:47.653"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.653" endtime="20230213 21:18:47.653"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:47.653" level="INFO">${pos} = 1</msg>
+<status status="PASS" starttime="20230213 21:18:47.653" endtime="20230213 21:18:47.653"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.662" endtime="20230213 21:18:47.663"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.653" endtime="20230213 21:18:47.663"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.653" endtime="20230213 21:18:47.663"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.663" level="INFO">${counter} = 3</msg>
+<status status="PASS" starttime="20230213 21:18:47.663" endtime="20230213 21:18:47.663"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.622" endtime="20230213 21:18:47.663"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="44196b2b-f39b-423b-ba46-252087ac0607")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.663" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="f46026ba-8d07-4266-953d-76bb445eedaa")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.663" endtime="20230213 21:18:47.663"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.679" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:47.679" endtime="20230213 21:18:47.679"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.679" endtime="20230213 21:18:47.679"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:47.694" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:47.679" endtime="20230213 21:18:47.694"/>
+</kw>
+<msg timestamp="20230213 21:18:47.694" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:47.679" endtime="20230213 21:18:47.694"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.694" endtime="20230213 21:18:47.694"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:47.694" level="INFO">${pos} = 2</msg>
+<status status="PASS" starttime="20230213 21:18:47.694" endtime="20230213 21:18:47.694"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.694" endtime="20230213 21:18:47.694"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.694" endtime="20230213 21:18:47.694"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.694" endtime="20230213 21:18:47.694"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.694" level="INFO">${counter} = 4</msg>
+<status status="PASS" starttime="20230213 21:18:47.694" endtime="20230213 21:18:47.694"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.663" endtime="20230213 21:18:47.694"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="e663dd81-5c9c-4e2a-8349-80aed2cb5c79")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.710" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="d9083c5b-219f-48c3-bbb7-ad0ece8983f7")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.694" endtime="20230213 21:18:47.710"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.723" level="INFO">${reviwTextdata} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:47.710" endtime="20230213 21:18:47.723"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.723" endtime="20230213 21:18:47.723"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230213 21:18:47.723" endtime="20230213 21:18:47.723"/>
+</kw>
+<msg timestamp="20230213 21:18:47.723" level="INFO">${dat} = True</msg>
+<status status="PASS" starttime="20230213 21:18:47.723" endtime="20230213 21:18:47.723"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.738" endtime="20230213 21:18:47.739"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.739" endtime="20230213 21:18:47.739"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.739" endtime="20230213 21:18:47.739"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 21:18:47.739" endtime="20230213 21:18:47.739"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.739" endtime="20230213 21:18:47.739"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.739" level="INFO">${counter} = 5</msg>
+<status status="PASS" starttime="20230213 21:18:47.739" endtime="20230213 21:18:47.739"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.694" endtime="20230213 21:18:47.739"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="cba113d7-8480-4bb6-becc-8f74643eec2d")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.755" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="8aa54e16-02be-402c-8ebe-3f489c43e587")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.739" endtime="20230213 21:18:47.755"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.771" level="INFO">${reviwTextdata} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:47.755" endtime="20230213 21:18:47.771"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.771"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.771"/>
+</kw>
+<msg timestamp="20230213 21:18:47.771" level="INFO">${dat} = True</msg>
+<status status="PASS" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.771"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.771"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.771"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.771"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.771"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.771"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.771" level="INFO">${counter} = 6</msg>
+<status status="PASS" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.771"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.739" endtime="20230213 21:18:47.771"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="ada1cc39-40ad-4fa3-92b5-bf11d2605029")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.786" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="2d2793b2-f5de-4c4d-a22e-95df527270b0")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.786"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.807" level="INFO">${reviwTextdata} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:47.786" endtime="20230213 21:18:47.807"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.807"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.807"/>
+</kw>
+<msg timestamp="20230213 21:18:47.807" level="INFO">${dat} = True</msg>
+<status status="PASS" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.807"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.807"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.807"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.807"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.807"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.807"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.807" level="INFO">${counter} = 7</msg>
+<status status="PASS" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.807"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.771" endtime="20230213 21:18:47.807"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="32e149e6-e395-45cb-9097-5295f71a0983")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.822" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="a48efdb8-758a-4e95-8109-a1c633337400")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.822"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.838" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:47.822" endtime="20230213 21:18:47.838"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.838" endtime="20230213 21:18:47.838"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:47.838" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:47.838" endtime="20230213 21:18:47.838"/>
+</kw>
+<msg timestamp="20230213 21:18:47.838" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:47.838" endtime="20230213 21:18:47.838"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.838" endtime="20230213 21:18:47.854"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:47.854" level="INFO">${pos} = 6</msg>
+<status status="PASS" starttime="20230213 21:18:47.854" endtime="20230213 21:18:47.854"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.854" endtime="20230213 21:18:47.854"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.854" endtime="20230213 21:18:47.854"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.854" endtime="20230213 21:18:47.854"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.854" level="INFO">${counter} = 8</msg>
+<status status="PASS" starttime="20230213 21:18:47.854" endtime="20230213 21:18:47.854"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.807" endtime="20230213 21:18:47.854"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="e2f6d478-86b5-4a86-95a7-b1cd38933c1c")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.861" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="39cc1ada-da65-42bd-bd5c-e52c24407008")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.854" endtime="20230213 21:18:47.861"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.877" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:47.861" endtime="20230213 21:18:47.877"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.877" endtime="20230213 21:18:47.877"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:47.877" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:47.877" endtime="20230213 21:18:47.877"/>
+</kw>
+<msg timestamp="20230213 21:18:47.877" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:47.877" endtime="20230213 21:18:47.877"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.877" endtime="20230213 21:18:47.877"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:47.877" level="INFO">${pos} = 7</msg>
+<status status="PASS" starttime="20230213 21:18:47.877" endtime="20230213 21:18:47.877"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.877" endtime="20230213 21:18:47.877"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.877" endtime="20230213 21:18:47.877"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.877" endtime="20230213 21:18:47.877"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.892" level="INFO">${counter} = 9</msg>
+<status status="PASS" starttime="20230213 21:18:47.877" endtime="20230213 21:18:47.892"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.854" endtime="20230213 21:18:47.892"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="9b834323-19f9-44f3-bcc4-4bff2516488e")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.892" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="047fcefa-6ad3-4405-9f95-28051be4dace")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.892" endtime="20230213 21:18:47.892"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.908" level="INFO">${reviwTextdata} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:47.892" endtime="20230213 21:18:47.908"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.908" endtime="20230213 21:18:47.908"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.924"/>
+</kw>
+<msg timestamp="20230213 21:18:47.924" level="INFO">${dat} = True</msg>
+<status status="PASS" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.924"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.924"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.924"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.924"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.924"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.924"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.924" level="INFO">${counter} = 10</msg>
+<status status="PASS" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.924"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.892" endtime="20230213 21:18:47.924"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="41583de9-edbb-49de-b37a-fa688f344cb7")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.939" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="b31ec704-4810-4bae-9c6f-c4a63bf53097")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.939"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.955" level="INFO">${reviwTextdata} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:47.939" endtime="20230213 21:18:47.955"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.955"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.955"/>
+</kw>
+<msg timestamp="20230213 21:18:47.955" level="INFO">${dat} = True</msg>
+<status status="PASS" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.955"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.955"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.955"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.955"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.955"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.955"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.955" level="INFO">${counter} = 11</msg>
+<status status="PASS" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.955"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.924" endtime="20230213 21:18:47.955"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="4cb80ea4-392b-48b0-b379-3b9f32b3e505")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:47.971" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="922bd645-37f1-4d08-ba55-44c59fab8ae3")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.971"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:47.986" level="INFO">${reviwTextdata} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:47.971" endtime="20230213 21:18:47.986"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.986" endtime="20230213 21:18:47.986"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230213 21:18:47.986" endtime="20230213 21:18:47.986"/>
+</kw>
+<msg timestamp="20230213 21:18:47.986" level="INFO">${dat} = True</msg>
+<status status="PASS" starttime="20230213 21:18:47.986" endtime="20230213 21:18:47.986"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:47.986" endtime="20230213 21:18:47.986"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.986" endtime="20230213 21:18:47.986"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:47.986" endtime="20230213 21:18:47.986"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 21:18:47.986" endtime="20230213 21:18:47.986"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:47.986" endtime="20230213 21:18:47.986"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:47.986" level="INFO">${counter} = 12</msg>
+<status status="PASS" starttime="20230213 21:18:47.986" endtime="20230213 21:18:47.986"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.955" endtime="20230213 21:18:47.986"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="35f22a2c-c3d4-4d2c-a8a4-033cde8ba4fb")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.007" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="13d064d0-c1bc-4ea9-bc17-f01e34094d81")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:47.986" endtime="20230213 21:18:48.007"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.023" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:48.007" endtime="20230213 21:18:48.023"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.023"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.023" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.023"/>
+</kw>
+<msg timestamp="20230213 21:18:48.023" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.023"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.023"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.023" level="INFO">${pos} = 11</msg>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.023"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.023"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.023"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.023"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.023" level="INFO">${counter} = 13</msg>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.023"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:47.986" endtime="20230213 21:18:48.023"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="4e202d5a-9a4e-432c-b9a5-3fbc7ac8caa6")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.039" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="55fd8910-4cd0-45b2-9b0c-26b14a3548ea")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.039"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.054" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:48.039" endtime="20230213 21:18:48.054"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.054" endtime="20230213 21:18:48.054"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.054" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.054" endtime="20230213 21:18:48.054"/>
+</kw>
+<msg timestamp="20230213 21:18:48.070" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.054" endtime="20230213 21:18:48.070"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.070" endtime="20230213 21:18:48.070"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.070" level="INFO">${pos} = 12</msg>
+<status status="PASS" starttime="20230213 21:18:48.070" endtime="20230213 21:18:48.070"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.070" endtime="20230213 21:18:48.070"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.070" endtime="20230213 21:18:48.070"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.070" endtime="20230213 21:18:48.070"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.070" level="INFO">${counter} = 14</msg>
+<status status="PASS" starttime="20230213 21:18:48.070" endtime="20230213 21:18:48.070"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.023" endtime="20230213 21:18:48.070"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="c197fead-639e-44a7-a650-86b318c694fd")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.086" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="763dd983-8c88-4214-aa63-a59a48f0003f")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.070" endtime="20230213 21:18:48.086"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.101" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:48.086" endtime="20230213 21:18:48.101"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.101"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.101" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.101"/>
+</kw>
+<msg timestamp="20230213 21:18:48.101" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.101"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.101"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.101" level="INFO">${pos} = 13</msg>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.101"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.101"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.101"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.101"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.101" level="INFO">${counter} = 15</msg>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.101"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.070" endtime="20230213 21:18:48.101"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="19ad2e02-3f09-499d-a94b-89c21480bda0")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.118" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="80746ef9-b740-4f6f-bdd3-090f20109098")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.118"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.134" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:48.118" endtime="20230213 21:18:48.134"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.134" endtime="20230213 21:18:48.134"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.134" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.134" endtime="20230213 21:18:48.134"/>
+</kw>
+<msg timestamp="20230213 21:18:48.134" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.134" endtime="20230213 21:18:48.134"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.134" endtime="20230213 21:18:48.134"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.150" level="INFO">${pos} = 14</msg>
+<status status="PASS" starttime="20230213 21:18:48.134" endtime="20230213 21:18:48.150"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.150" endtime="20230213 21:18:48.150"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.134" endtime="20230213 21:18:48.150"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.134" endtime="20230213 21:18:48.150"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.150" level="INFO">${counter} = 16</msg>
+<status status="PASS" starttime="20230213 21:18:48.150" endtime="20230213 21:18:48.150"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.101" endtime="20230213 21:18:48.150"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="d134341f-34b1-45c0-803c-bad7dfb9ca2b")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.165" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="b288a6b6-5263-4e2e-a569-ca7686e37f50")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.150" endtime="20230213 21:18:48.165"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.181" level="INFO">${reviwTextdata} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:48.165" endtime="20230213 21:18:48.181"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.181"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.181"/>
+</kw>
+<msg timestamp="20230213 21:18:48.181" level="INFO">${dat} = True</msg>
+<status status="PASS" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.181"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.181"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.181"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.181"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.181"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.181"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.181" level="INFO">${counter} = 17</msg>
+<status status="PASS" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.181"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.150" endtime="20230213 21:18:48.181"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="4c677b16-fb45-477e-acad-d0c4c459ed1f")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.208" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="5e379e35-69b2-4c37-b577-0cd417a0ba03")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.208"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.224" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:48.208" endtime="20230213 21:18:48.224"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.224"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.224" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.224"/>
+</kw>
+<msg timestamp="20230213 21:18:48.224" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.224"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.224"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.224" level="INFO">${pos} = 16</msg>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.224"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.224"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.224"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.224"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.224" level="INFO">${counter} = 18</msg>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.224"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.181" endtime="20230213 21:18:48.224"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="0cd4ca45-667e-400c-abdf-2fa1e5c4e027")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.239" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="9d214c6a-3d69-48fe-ba7c-77b7a0b2e35e")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.239"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.266" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:48.239" endtime="20230213 21:18:48.266"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.266"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.266" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.266"/>
+</kw>
+<msg timestamp="20230213 21:18:48.266" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.266"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.266"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.266" level="INFO">${pos} = 17</msg>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.266"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.266"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.266"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.266"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.266" level="INFO">${counter} = 19</msg>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.266"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.224" endtime="20230213 21:18:48.266"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="18837795-23d8-47b6-966a-fa1c0525137c")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.281" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="5e57e9bc-d4ea-452b-af33-3ef69ab331dc")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.281"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.297" level="INFO">${reviwTextdata} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:48.281" endtime="20230213 21:18:48.297"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.297" endtime="20230213 21:18:48.297"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230213 21:18:48.297" endtime="20230213 21:18:48.297"/>
+</kw>
+<msg timestamp="20230213 21:18:48.297" level="INFO">${dat} = True</msg>
+<status status="PASS" starttime="20230213 21:18:48.297" endtime="20230213 21:18:48.297"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.313" endtime="20230213 21:18:48.313"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:48.313" endtime="20230213 21:18:48.313"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:48.313" endtime="20230213 21:18:48.313"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 21:18:48.313" endtime="20230213 21:18:48.313"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.313" endtime="20230213 21:18:48.313"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.313" level="INFO">${counter} = 20</msg>
+<status status="PASS" starttime="20230213 21:18:48.313" endtime="20230213 21:18:48.313"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.266" endtime="20230213 21:18:48.313"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="762d4bd3-2a66-4b15-80b2-ef37b12450ac")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.324" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="eaa2a980-9dc4-4923-b2a2-7da931edb522")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.313" endtime="20230213 21:18:48.324"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.340" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:48.324" endtime="20230213 21:18:48.340"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.340" endtime="20230213 21:18:48.340"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.340" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.340" endtime="20230213 21:18:48.340"/>
+</kw>
+<msg timestamp="20230213 21:18:48.340" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.340" endtime="20230213 21:18:48.340"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.340" endtime="20230213 21:18:48.340"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.340" level="INFO">${pos} = 19</msg>
+<status status="PASS" starttime="20230213 21:18:48.340" endtime="20230213 21:18:48.340"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.340" endtime="20230213 21:18:48.340"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.340" endtime="20230213 21:18:48.340"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.340" endtime="20230213 21:18:48.340"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.340" level="INFO">${counter} = 21</msg>
+<status status="PASS" starttime="20230213 21:18:48.340" endtime="20230213 21:18:48.340"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.313" endtime="20230213 21:18:48.355"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="1aad3338-672e-4907-9f15-4fab25cc9731")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.371" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="ec566f4d-2a8c-48c3-9958-f91745acd077")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.355" endtime="20230213 21:18:48.371"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.387" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:48.371" endtime="20230213 21:18:48.387"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.387" endtime="20230213 21:18:48.387"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.387" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.387" endtime="20230213 21:18:48.387"/>
+</kw>
+<msg timestamp="20230213 21:18:48.387" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.387" endtime="20230213 21:18:48.387"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.387" endtime="20230213 21:18:48.387"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.387" level="INFO">${pos} = 20</msg>
+<status status="PASS" starttime="20230213 21:18:48.387" endtime="20230213 21:18:48.387"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.387" endtime="20230213 21:18:48.387"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.387" endtime="20230213 21:18:48.402"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.387" endtime="20230213 21:18:48.402"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.402" level="INFO">${counter} = 22</msg>
+<status status="PASS" starttime="20230213 21:18:48.402" endtime="20230213 21:18:48.402"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.355" endtime="20230213 21:18:48.402"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="b4a76bcc-bccf-4623-8f02-d2b849c83ccf")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.408" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="4ad616d5-0447-4297-b038-cbf15ff450aa")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.402" endtime="20230213 21:18:48.408"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.440" level="INFO">${reviwTextdata} = </msg>
+<status status="PASS" starttime="20230213 21:18:48.408" endtime="20230213 21:18:48.440"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.440"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.440" level="FAIL">'' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.440"/>
+</kw>
+<msg timestamp="20230213 21:18:48.440" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.440"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.440"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.440" level="INFO">${pos} = 21</msg>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.440"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.440"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.440"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.440"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.440" level="INFO">${counter} = 23</msg>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.440"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.402" endtime="20230213 21:18:48.440"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="a1bcdf59-5bbf-4851-8eed-4dd6ea4965fe")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.455" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="98b4a1e0-3022-4449-a9b3-9ef6488e46c9")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.455"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.471" level="INFO">${reviwTextdata} = Review copy available</msg>
+<status status="PASS" starttime="20230213 21:18:48.455" endtime="20230213 21:18:48.471"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.471" endtime="20230213 21:18:48.471"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230213 21:18:48.471" endtime="20230213 21:18:48.486"/>
+</kw>
+<msg timestamp="20230213 21:18:48.486" level="INFO">${dat} = True</msg>
+<status status="PASS" starttime="20230213 21:18:48.471" endtime="20230213 21:18:48.486"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.486" endtime="20230213 21:18:48.486"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:48.486" endtime="20230213 21:18:48.486"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230213 21:18:48.486" endtime="20230213 21:18:48.486"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 21:18:48.486" endtime="20230213 21:18:48.486"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.486" endtime="20230213 21:18:48.486"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.486" level="INFO">${counter} = 24</msg>
+<status status="PASS" starttime="20230213 21:18:48.486" endtime="20230213 21:18:48.486"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.440" endtime="20230213 21:18:48.486"/>
+</iter>
+<iter>
+<var name="${resultEle}">&lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="4903bea8-5205-4092-9928-74ba85bca84c")&gt;</var>
+<kw name="Call Method" library="BuiltIn">
+<var>${children}</var>
+<arg>${resultEle}</arg>
+<arg>find_element</arg>
+<arg>by=xpath</arg>
+<arg>value=child::div[7]</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230213 21:18:48.502" level="INFO">${children} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cbfef252ec10711c3be6d505de4ad3a3", element="e09c8c9a-92bd-45d2-ad5b-c15c2f04d2af")&gt;</msg>
+<status status="PASS" starttime="20230213 21:18:48.486" endtime="20230213 21:18:48.502"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${reviwTextdata}</var>
+<arg>${children}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230213 21:18:48.518" level="INFO">${reviwTextdata} = Instructor Resource Site
+Student Study Site</msg>
+<status status="PASS" starttime="20230213 21:18:48.502" endtime="20230213 21:18:48.518"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.518" endtime="20230213 21:18:48.518"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${dat}</var>
+<arg>Should Contain</arg>
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${reviwTextdata}</arg>
+<arg>Review copy available</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230213 21:18:48.518" level="FAIL">'Instructor Resource Site
+Student Study Site' does not contain 'Review copy available'</msg>
+<status status="FAIL" starttime="20230213 21:18:48.518" endtime="20230213 21:18:48.518"/>
+</kw>
+<msg timestamp="20230213 21:18:48.518" level="INFO">${dat} = False</msg>
+<status status="PASS" starttime="20230213 21:18:48.518" endtime="20230213 21:18:48.518"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${dat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.518" endtime="20230213 21:18:48.518"/>
+</kw>
+<if>
+<branch type="IF" condition="${dat} == False">
+<kw name="Get Index From List" library="Collections">
+<var>${pos}</var>
+<arg>${reviewCopies}</arg>
+<arg>${resultEle}</arg>
+<doc>Returns the index of the first occurrence of the ``value`` on the list.</doc>
+<msg timestamp="20230213 21:18:48.518" level="INFO">${pos} = 23</msg>
+<status status="PASS" starttime="20230213 21:18:48.518" endtime="20230213 21:18:48.518"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>found at:${pos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230213 21:18:48.518" endtime="20230213 21:18:48.518"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.518" endtime="20230213 21:18:48.518"/>
+</branch>
+<status status="PASS" starttime="20230213 21:18:48.518" endtime="20230213 21:18:48.518"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 21:18:48.518" level="INFO">${counter} = 25</msg>
+<status status="PASS" starttime="20230213 21:18:48.518" endtime="20230213 21:18:48.518"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:48.486" endtime="20230213 21:18:48.518"/>
+</iter>
+<status status="PASS" starttime="20230213 21:18:47.578" endtime="20230213 21:18:48.518"/>
+</for>
+<status status="PASS" starttime="20230213 21:18:47.562" endtime="20230213 21:18:48.518"/>
+</kw>
+<status status="PASS" starttime="20230213 21:18:31.386" endtime="20230213 21:18:48.518"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230213 21:18:48.518" endtime="20230213 21:18:51.078"/>
+</kw>
+<doc>Search the books by author name</doc>
+<status status="PASS" starttime="20230213 21:18:05.249" endtime="20230213 21:18:51.078"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="SearchByAuthor">SearchByAuthor</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

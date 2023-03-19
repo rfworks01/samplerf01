@@ -1,0 +1,15 @@
+Appium-Python-Client
+selenium
+requests
+robotframework
+robotframework-appiumlibrary
+robotframework-datadriver
+robotframework-debuglibrary
+robotframework-dependencylibrary
+robotframework-faker
+robotframework-pageobjectlibrary
+robotframework-pythonlibcore
+robotframework-requests
+robotframework-screencaplibrary
+robotframework-selenium2library
+robotframework-seleniumlibrary
