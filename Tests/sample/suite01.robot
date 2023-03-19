@@ -3,8 +3,8 @@ Documentation   sample github ci tests
 Library     SeleniumLibrary
 Library     ../../Resources/UserKeyword/BrowserManager.py
 
-Suite Setup  Open Browser    url=${url}      browser=chrome   
-# Suite Setup  open_chrome_defaultProfile  ${url}
+# Suite Setup  Open Browser    url=${url}      browser=chrome   
+Suite Setup  start chrome with options
 
 
 
@@ -29,6 +29,19 @@ Search Google03
 
 
 *** Keywords ***
+
+start chrome with options
+    
+    ${chrome_options} =    Evaluate    selenium.webdriver.ChromeOptions()
+    Call Method    ${chrome_options}    add_argument    --log-level\=3
+    Call Method    ${chrome_options}    add_argument    --start-maximized
+    Call Method    ${chrome_options}    add_argument    --window-size\=800,600
+    Call Method    ${chrome_options}     add_argument    --remote-allow-origins\=*
+    Call Method    ${chrome_options}    add_argument    --headless
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Create WebDriver    Chrome    chrome_options=${chrome_options} 
+    Go To   ${url}
+
 
 open search engine
 

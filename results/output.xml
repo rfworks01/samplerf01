@@ -1,24 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.10 on win32)" generated="20230319 21:22:09.934" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.10 on win32)" generated="20230319 21:31:19.889" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot-Sample01" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01">
 <suite id="s1-s1" name="Tests" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests">
 <suite id="s1-s1-s1" name="Sample" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests\sample">
 <suite id="s1-s1-s1-s1" name="Suite01" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests\sample\suite01.robot">
-<kw name="Open Browser" library="SeleniumLibrary" type="SETUP">
-<arg>url=${url}</arg>
-<arg>browser=chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230319 21:22:13.463" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com'.</msg>
-<status status="PASS" starttime="20230319 21:22:13.462" endtime="20230319 21:22:24.873"/>
+<kw name="start chrome with options" type="SETUP">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230319 21:31:20.496" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020FA4D00BE0&gt;</msg>
+<status status="PASS" starttime="20230319 21:31:20.496" endtime="20230319 21:31:20.497"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--log-level\=3</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230319 21:31:20.498" endtime="20230319 21:31:20.498"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230319 21:31:20.498" endtime="20230319 21:31:20.500"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size\=800,600</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230319 21:31:20.501" endtime="20230319 21:31:20.502"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230319 21:31:20.502" endtime="20230319 21:31:20.504"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-extensions</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230319 21:31:20.505" endtime="20230319 21:31:20.506"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230319 21:31:20.507" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230319 21:31:20.506" endtime="20230319 21:31:30.456"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230319 21:31:30.457" level="INFO">Opening url 'https://www.google.com'</msg>
+<status status="PASS" starttime="20230319 21:31:30.457" endtime="20230319 21:31:37.858"/>
+</kw>
+<status status="PASS" starttime="20230319 21:31:20.495" endtime="20230319 21:31:37.858"/>
 </kw>
 <test id="s1-s1-s1-s1-t1" name="Search Google01" line="18">
 <kw name="open search engine">
 <kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
 <arg>20s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230319 21:22:24.880" endtime="20230319 21:22:24.884"/>
+<status status="PASS" starttime="20230319 21:31:37.862" endtime="20230319 21:31:37.865"/>
 </kw>
-<status status="PASS" starttime="20230319 21:22:24.878" endtime="20230319 21:22:24.885"/>
+<status status="PASS" starttime="20230319 21:31:37.861" endtime="20230319 21:31:37.866"/>
 </kw>
 <kw name="enter search term">
 <arg>juke box</arg>
@@ -26,22 +77,22 @@
 <arg>name=q</arg>
 <arg>${data}\n</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230319 21:22:24.888" level="INFO">Typing text 'juke box
+<msg timestamp="20230319 21:31:37.868" level="INFO">Typing text 'juke box
 ' into text field 'name=q'.</msg>
-<status status="PASS" starttime="20230319 21:22:24.887" endtime="20230319 21:22:31.277"/>
+<status status="PASS" starttime="20230319 21:31:37.867" endtime="20230319 21:31:44.618"/>
 </kw>
-<status status="PASS" starttime="20230319 21:22:24.886" endtime="20230319 21:22:31.278"/>
+<status status="PASS" starttime="20230319 21:31:37.867" endtime="20230319 21:31:44.619"/>
 </kw>
-<status status="PASS" starttime="20230319 21:22:24.874" endtime="20230319 21:22:31.279"/>
+<status status="PASS" starttime="20230319 21:31:37.859" endtime="20230319 21:31:44.620"/>
 </test>
 <test id="s1-s1-s1-s1-t2" name="Search Google02" line="22">
 <kw name="open search engine">
 <kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
 <arg>20s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230319 21:22:31.285" endtime="20230319 21:22:31.287"/>
+<status status="PASS" starttime="20230319 21:31:44.625" endtime="20230319 21:31:44.628"/>
 </kw>
-<status status="PASS" starttime="20230319 21:22:31.284" endtime="20230319 21:22:31.288"/>
+<status status="PASS" starttime="20230319 21:31:44.624" endtime="20230319 21:31:44.629"/>
 </kw>
 <kw name="enter search term">
 <arg>selenium</arg>
@@ -49,22 +100,22 @@
 <arg>name=q</arg>
 <arg>${data}\n</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230319 21:22:31.292" level="INFO">Typing text 'selenium
+<msg timestamp="20230319 21:31:44.633" level="INFO">Typing text 'selenium
 ' into text field 'name=q'.</msg>
-<status status="PASS" starttime="20230319 21:22:31.291" endtime="20230319 21:22:35.046"/>
+<status status="PASS" starttime="20230319 21:31:44.632" endtime="20230319 21:31:46.269"/>
 </kw>
-<status status="PASS" starttime="20230319 21:22:31.289" endtime="20230319 21:22:35.046"/>
+<status status="PASS" starttime="20230319 21:31:44.630" endtime="20230319 21:31:46.270"/>
 </kw>
-<status status="PASS" starttime="20230319 21:22:31.282" endtime="20230319 21:22:35.047"/>
+<status status="PASS" starttime="20230319 21:31:44.623" endtime="20230319 21:31:46.271"/>
 </test>
 <test id="s1-s1-s1-s1-t3" name="Search Google03" line="26">
 <kw name="open search engine">
 <kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
 <arg>20s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230319 21:22:35.053" endtime="20230319 21:22:35.058"/>
+<status status="PASS" starttime="20230319 21:31:46.277" endtime="20230319 21:31:46.281"/>
 </kw>
-<status status="PASS" starttime="20230319 21:22:35.051" endtime="20230319 21:22:35.059"/>
+<status status="PASS" starttime="20230319 21:31:46.276" endtime="20230319 21:31:46.282"/>
 </kw>
 <kw name="enter search term">
 <arg>selenium robot works</arg>
@@ -72,22 +123,22 @@
 <arg>name=q</arg>
 <arg>${data}\n</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230319 21:22:35.062" level="INFO">Typing text 'selenium robot works
+<msg timestamp="20230319 21:31:46.286" level="INFO">Typing text 'selenium robot works
 ' into text field 'name=q'.</msg>
-<status status="PASS" starttime="20230319 21:22:35.061" endtime="20230319 21:22:36.451"/>
+<status status="PASS" starttime="20230319 21:31:46.285" endtime="20230319 21:31:50.782"/>
 </kw>
-<status status="PASS" starttime="20230319 21:22:35.060" endtime="20230319 21:22:36.453"/>
+<status status="PASS" starttime="20230319 21:31:46.283" endtime="20230319 21:31:50.782"/>
 </kw>
-<status status="PASS" starttime="20230319 21:22:35.049" endtime="20230319 21:22:36.456"/>
+<status status="PASS" starttime="20230319 21:31:46.274" endtime="20230319 21:31:50.783"/>
 </test>
 <doc>sample github ci tests</doc>
-<status status="PASS" starttime="20230319 21:22:10.069" endtime="20230319 21:22:36.460"/>
+<status status="PASS" starttime="20230319 21:31:19.943" endtime="20230319 21:31:50.785"/>
 </suite>
-<status status="PASS" starttime="20230319 21:22:10.064" endtime="20230319 21:22:36.465"/>
+<status status="PASS" starttime="20230319 21:31:19.938" endtime="20230319 21:31:50.789"/>
 </suite>
-<status status="PASS" starttime="20230319 21:22:10.058" endtime="20230319 21:22:36.472"/>
+<status status="PASS" starttime="20230319 21:31:19.931" endtime="20230319 21:31:50.793"/>
 </suite>
-<status status="PASS" starttime="20230319 21:22:09.948" endtime="20230319 21:22:36.477"/>
+<status status="PASS" starttime="20230319 21:31:19.895" endtime="20230319 21:31:50.798"/>
 </suite>
 <statistics>
 <total>
