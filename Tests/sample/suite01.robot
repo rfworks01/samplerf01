@@ -1,8 +1,7 @@
 *** Settings ***
 Documentation   sample github ci tests
+Library     SeleniumLibrary
 
-Resource   ../CommonOrange.robot
-Resource   ../OrangeTables.robot
 
 Suite Setup  Open Browser    url=${url}      browser=chrome   
 
