@@ -16,3 +16,5 @@ robotframework-seleniumlibrary
 allure-python-commons
 allure-robotframework
 chromedriver-py
+geckodriver-autoinstaller
+webdriver-manager
