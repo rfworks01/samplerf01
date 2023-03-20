@@ -1,156 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.10 on win32)" generated="20230319 21:31:19.889" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.10 on win32)" generated="20230320 09:00:07.300" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot-Sample01" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01">
 <suite id="s1-s1" name="Tests" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests">
 <suite id="s1-s1-s1" name="Sample" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests\sample">
 <suite id="s1-s1-s1-s1" name="Suite01" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests\sample\suite01.robot">
-<kw name="start chrome with options" type="SETUP">
+<test id="s1-s1-s1-s1-t1" name="TC001" line="32">
+<kw name="Get some path">
+<kw name="Get Manager Chrome Path" library="BrowserManager">
+<var>${path_exe}</var>
+<msg timestamp="20230320 09:00:07.751" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230320 09:00:08.881" level="INFO">Get LATEST chromedriver version for google-chrome 111.0.5563</msg>
+<msg timestamp="20230320 09:00:09.709" level="INFO">Driver [C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe] found in cache</msg>
+<msg timestamp="20230320 09:00:09.710" level="INFO">${path_exe} = C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe</msg>
+<status status="PASS" starttime="20230320 09:00:07.750" endtime="20230320 09:00:09.711"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${path_exe}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230320 09:00:09.711" endtime="20230320 09:00:09.713"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${cpath}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230320 09:00:09.713" endtime="20230320 09:00:09.715"/>
+</kw>
+<status status="PASS" starttime="20230320 09:00:07.747" endtime="20230320 09:00:09.716"/>
+</kw>
+<kw name="start chrome with options">
+<kw name="Get Manager Chrome Path" library="BrowserManager">
+<var>${path_exe}</var>
+<msg timestamp="20230320 09:00:09.719" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230320 09:00:10.359" level="INFO">Get LATEST chromedriver version for google-chrome 111.0.5563</msg>
+<msg timestamp="20230320 09:00:11.043" level="INFO">Driver [C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe] found in cache</msg>
+<msg timestamp="20230320 09:00:11.044" level="INFO">${path_exe} = C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe</msg>
+<status status="PASS" starttime="20230320 09:00:09.718" endtime="20230320 09:00:11.045"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${path_exe}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230320 09:00:11.045" endtime="20230320 09:00:11.046"/>
+</kw>
+<kw name="Append To Environment Variable" library="OperatingSystem">
+<arg>PATHV</arg>
+<arg>${EXECDIR}/bin/chromedriver.exe</arg>
+<doc>Appends given ``values`` to environment variable ``name``.</doc>
+<msg timestamp="20230320 09:00:11.049" level="INFO">Environment variable 'PATHV' set to value 'E:\VS-CodeProject\py2023\Git-samples\robot-sample01/bin/chromedriver.exe'.</msg>
+<status status="PASS" starttime="20230320 09:00:11.047" endtime="20230320 09:00:11.050"/>
+</kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${chrome_options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230319 21:31:20.496" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020FA4D00BE0&gt;</msg>
-<status status="PASS" starttime="20230319 21:31:20.496" endtime="20230319 21:31:20.497"/>
+<msg timestamp="20230320 09:00:11.053" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000012C80C1A680&gt;</msg>
+<status status="PASS" starttime="20230320 09:00:11.051" endtime="20230320 09:00:11.054"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--log-level\=3</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:31:20.498" endtime="20230319 21:31:20.498"/>
+<status status="PASS" starttime="20230320 09:00:11.054" endtime="20230320 09:00:11.056"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--start-maximized</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:31:20.498" endtime="20230319 21:31:20.500"/>
+<status status="PASS" starttime="20230320 09:00:11.056" endtime="20230320 09:00:11.058"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size\=800,600</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:31:20.501" endtime="20230319 21:31:20.502"/>
+<status status="PASS" starttime="20230320 09:00:11.058" endtime="20230320 09:00:11.059"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--remote-allow-origins\=*</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 09:00:11.059" endtime="20230320 09:00:11.060"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 09:00:11.061" endtime="20230320 09:00:11.062"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-infobars</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 09:00:11.062" endtime="20230320 09:00:11.063"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:31:20.502" endtime="20230319 21:31:20.504"/>
+<status status="PASS" starttime="20230320 09:00:11.063" endtime="20230320 09:00:11.063"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-extensions</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:31:20.505" endtime="20230319 21:31:20.506"/>
+<status status="PASS" starttime="20230320 09:00:11.064" endtime="20230320 09:00:11.065"/>
 </kw>
-<kw name="Create Webdriver" library="SeleniumLibrary">
-<arg>Chrome</arg>
-<arg>chrome_options=${chrome_options}</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<msg timestamp="20230319 21:31:20.507" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20230319 21:31:20.506" endtime="20230319 21:31:30.456"/>
+<kw name="Create List" library="BuiltIn">
+<var>@{service_args}</var>
+<arg>--log-path=chromedriver.log</arg>
+<arg>service=${path_exe}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230320 09:00:11.066" level="INFO">@{service_args} = [ --log-path=chromedriver.log | service=C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe ]</msg>
+<status status="PASS" starttime="20230320 09:00:11.065" endtime="20230320 09:00:11.067"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=${url}</arg>
+<arg>browser=chrome</arg>
+<arg>options=${chrome_options}</arg>
+<arg>executable_path= ${cpath}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230320 09:00:11.070" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com'.</msg>
+<msg timestamp="20230320 09:00:11.076" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20230320 09:00:11.078" level="FAIL">WebDriverException: Message: 'chromedriver.exe' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</msg>
+<status status="FAIL" starttime="20230320 09:00:11.068" endtime="20230320 09:00:11.086"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20230319 21:31:30.457" level="INFO">Opening url 'https://www.google.com'</msg>
-<status status="PASS" starttime="20230319 21:31:30.457" endtime="20230319 21:31:37.858"/>
+<status status="NOT RUN" starttime="20230320 09:00:11.087" endtime="20230320 09:00:11.088"/>
 </kw>
-<status status="PASS" starttime="20230319 21:31:20.495" endtime="20230319 21:31:37.858"/>
+<status status="FAIL" starttime="20230320 09:00:09.717" endtime="20230320 09:00:11.089"/>
 </kw>
-<test id="s1-s1-s1-s1-t1" name="Search Google01" line="18">
-<kw name="open search engine">
-<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
-<arg>20s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230319 21:31:37.862" endtime="20230319 21:31:37.865"/>
-</kw>
-<status status="PASS" starttime="20230319 21:31:37.861" endtime="20230319 21:31:37.866"/>
-</kw>
-<kw name="enter search term">
-<arg>juke box</arg>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>name=q</arg>
-<arg>${data}\n</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230319 21:31:37.868" level="INFO">Typing text 'juke box
-' into text field 'name=q'.</msg>
-<status status="PASS" starttime="20230319 21:31:37.867" endtime="20230319 21:31:44.618"/>
-</kw>
-<status status="PASS" starttime="20230319 21:31:37.867" endtime="20230319 21:31:44.619"/>
-</kw>
-<status status="PASS" starttime="20230319 21:31:37.859" endtime="20230319 21:31:44.620"/>
-</test>
-<test id="s1-s1-s1-s1-t2" name="Search Google02" line="22">
-<kw name="open search engine">
-<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
-<arg>20s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230319 21:31:44.625" endtime="20230319 21:31:44.628"/>
-</kw>
-<status status="PASS" starttime="20230319 21:31:44.624" endtime="20230319 21:31:44.629"/>
-</kw>
-<kw name="enter search term">
-<arg>selenium</arg>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>name=q</arg>
-<arg>${data}\n</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230319 21:31:44.633" level="INFO">Typing text 'selenium
-' into text field 'name=q'.</msg>
-<status status="PASS" starttime="20230319 21:31:44.632" endtime="20230319 21:31:46.269"/>
-</kw>
-<status status="PASS" starttime="20230319 21:31:44.630" endtime="20230319 21:31:46.270"/>
-</kw>
-<status status="PASS" starttime="20230319 21:31:44.623" endtime="20230319 21:31:46.271"/>
-</test>
-<test id="s1-s1-s1-s1-t3" name="Search Google03" line="26">
-<kw name="open search engine">
-<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
-<arg>20s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230319 21:31:46.277" endtime="20230319 21:31:46.281"/>
-</kw>
-<status status="PASS" starttime="20230319 21:31:46.276" endtime="20230319 21:31:46.282"/>
-</kw>
-<kw name="enter search term">
-<arg>selenium robot works</arg>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>name=q</arg>
-<arg>${data}\n</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230319 21:31:46.286" level="INFO">Typing text 'selenium robot works
-' into text field 'name=q'.</msg>
-<status status="PASS" starttime="20230319 21:31:46.285" endtime="20230319 21:31:50.782"/>
-</kw>
-<status status="PASS" starttime="20230319 21:31:46.283" endtime="20230319 21:31:50.782"/>
-</kw>
-<status status="PASS" starttime="20230319 21:31:46.274" endtime="20230319 21:31:50.783"/>
+<status status="FAIL" starttime="20230320 09:00:07.746" endtime="20230320 09:00:11.090">WebDriverException: Message: 'chromedriver.exe' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</status>
 </test>
 <doc>sample github ci tests</doc>
-<status status="PASS" starttime="20230319 21:31:19.943" endtime="20230319 21:31:50.785"/>
+<status status="FAIL" starttime="20230320 09:00:07.360" endtime="20230320 09:00:11.093"/>
 </suite>
-<status status="PASS" starttime="20230319 21:31:19.938" endtime="20230319 21:31:50.789"/>
+<status status="FAIL" starttime="20230320 09:00:07.352" endtime="20230320 09:00:11.097"/>
 </suite>
-<status status="PASS" starttime="20230319 21:31:19.931" endtime="20230319 21:31:50.793"/>
+<status status="FAIL" starttime="20230320 09:00:07.343" endtime="20230320 09:00:11.103"/>
 </suite>
-<status status="PASS" starttime="20230319 21:31:19.895" endtime="20230319 21:31:50.798"/>
+<status status="FAIL" starttime="20230320 09:00:07.306" endtime="20230320 09:00:11.107"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Robot-Sample01">Robot-Sample01</stat>
-<stat pass="3" fail="0" skip="0" id="s1-s1" name="Tests">Robot-Sample01.Tests</stat>
-<stat pass="3" fail="0" skip="0" id="s1-s1-s1" name="Sample">Robot-Sample01.Tests.Sample</stat>
-<stat pass="3" fail="0" skip="0" id="s1-s1-s1-s1" name="Suite01">Robot-Sample01.Tests.Sample.Suite01</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Robot-Sample01">Robot-Sample01</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Tests">Robot-Sample01.Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Sample">Robot-Sample01.Tests.Sample</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="Suite01">Robot-Sample01.Tests.Sample.Suite01</stat>
 </suite>
 </statistics>
 <errors>

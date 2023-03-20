@@ -13,3 +13,6 @@ robotframework-requests
 robotframework-screencaplibrary
 robotframework-selenium2library
 robotframework-seleniumlibrary
+allure-python-commons
+allure-robotframework
+chromedriver-py

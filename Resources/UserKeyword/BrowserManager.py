@@ -6,17 +6,19 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Firefox
 from webdriver_manager.microsoft import EdgeChromiumDriver
 from webdriver_manager.chrome import ChromeDriverManager  # webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import DownloadManager
 # from webdriver_manager.gecko import GeckoDriverManager  # .firefox import GeckoDriverManager
-
+from selenium.webdriver.chrome.service import Service
 
 # from webdrivermanager.microsoft import EdgeChromiumDriverManager
 
 ROBOT_LIBRARY_SCOPE = 'SUITE'
 
-
+@keyword
 def get_manager_chrome_path():
-    driver_path = ChromeDriverManager()._get_driver_path #.get_download_path()
-    return driver_path
+    # driver_path = ChromeDriverManager()._get_driver_path #.get_download_path()
+    # return driver_path
+    return ChromeDriverManager().install()
 
 
 @keyword('open browser window')
