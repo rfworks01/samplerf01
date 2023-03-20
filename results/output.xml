@@ -1,153 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.10 on win32)" generated="20230320 09:00:07.300" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.10.10 on win32)" generated="20230320 10:37:02.859" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot-Sample01" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01">
 <suite id="s1-s1" name="Tests" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests">
 <suite id="s1-s1-s1" name="Sample" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests\sample">
 <suite id="s1-s1-s1-s1" name="Suite01" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests\sample\suite01.robot">
-<test id="s1-s1-s1-s1-t1" name="TC001" line="32">
-<kw name="Get some path">
-<kw name="Get Manager Chrome Path" library="BrowserManager">
-<var>${path_exe}</var>
-<msg timestamp="20230320 09:00:07.751" level="INFO">====== WebDriver manager ======</msg>
-<msg timestamp="20230320 09:00:08.881" level="INFO">Get LATEST chromedriver version for google-chrome 111.0.5563</msg>
-<msg timestamp="20230320 09:00:09.709" level="INFO">Driver [C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe] found in cache</msg>
-<msg timestamp="20230320 09:00:09.710" level="INFO">${path_exe} = C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe</msg>
-<status status="PASS" starttime="20230320 09:00:07.750" endtime="20230320 09:00:09.711"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${path_exe}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230320 09:00:09.711" endtime="20230320 09:00:09.713"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${cpath}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230320 09:00:09.713" endtime="20230320 09:00:09.715"/>
-</kw>
-<status status="PASS" starttime="20230320 09:00:07.747" endtime="20230320 09:00:09.716"/>
-</kw>
+<test id="s1-s1-s1-s1-t1" name="Search Google01" line="21">
 <kw name="start chrome with options">
-<kw name="Get Manager Chrome Path" library="BrowserManager">
-<var>${path_exe}</var>
-<msg timestamp="20230320 09:00:09.719" level="INFO">====== WebDriver manager ======</msg>
-<msg timestamp="20230320 09:00:10.359" level="INFO">Get LATEST chromedriver version for google-chrome 111.0.5563</msg>
-<msg timestamp="20230320 09:00:11.043" level="INFO">Driver [C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe] found in cache</msg>
-<msg timestamp="20230320 09:00:11.044" level="INFO">${path_exe} = C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe</msg>
-<status status="PASS" starttime="20230320 09:00:09.718" endtime="20230320 09:00:11.045"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${path_exe}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230320 09:00:11.045" endtime="20230320 09:00:11.046"/>
-</kw>
-<kw name="Append To Environment Variable" library="OperatingSystem">
-<arg>PATHV</arg>
-<arg>${EXECDIR}/bin/chromedriver.exe</arg>
-<doc>Appends given ``values`` to environment variable ``name``.</doc>
-<msg timestamp="20230320 09:00:11.049" level="INFO">Environment variable 'PATHV' set to value 'E:\VS-CodeProject\py2023\Git-samples\robot-sample01/bin/chromedriver.exe'.</msg>
-<status status="PASS" starttime="20230320 09:00:11.047" endtime="20230320 09:00:11.050"/>
-</kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${chrome_options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230320 09:00:11.053" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000012C80C1A680&gt;</msg>
-<status status="PASS" starttime="20230320 09:00:11.051" endtime="20230320 09:00:11.054"/>
+<msg timestamp="20230320 10:37:03.413" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000019C66FFF9A0&gt;</msg>
+<status status="PASS" starttime="20230320 10:37:03.412" endtime="20230320 10:37:03.414"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--log-level\=3</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230320 09:00:11.054" endtime="20230320 09:00:11.056"/>
+<status status="PASS" starttime="20230320 10:37:03.415" endtime="20230320 10:37:03.416"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--start-maximized</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230320 09:00:11.056" endtime="20230320 09:00:11.058"/>
+<status status="PASS" starttime="20230320 10:37:03.417" endtime="20230320 10:37:03.418"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size\=800,600</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230320 09:00:11.058" endtime="20230320 09:00:11.059"/>
+<status status="PASS" starttime="20230320 10:37:03.418" endtime="20230320 10:37:03.419"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--remote-allow-origins\=*</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230320 09:00:11.059" endtime="20230320 09:00:11.060"/>
+<status status="PASS" starttime="20230320 10:37:03.419" endtime="20230320 10:37:03.420"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-notifications</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230320 09:00:11.061" endtime="20230320 09:00:11.062"/>
+<status status="PASS" starttime="20230320 10:37:03.420" endtime="20230320 10:37:03.421"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-infobars</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230320 09:00:11.062" endtime="20230320 09:00:11.063"/>
+<status status="PASS" starttime="20230320 10:37:03.421" endtime="20230320 10:37:03.422"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230320 09:00:11.063" endtime="20230320 09:00:11.063"/>
+<status status="PASS" starttime="20230320 10:37:03.422" endtime="20230320 10:37:03.423"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-extensions</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230320 09:00:11.064" endtime="20230320 09:00:11.065"/>
+<status status="PASS" starttime="20230320 10:37:03.423" endtime="20230320 10:37:03.423"/>
 </kw>
-<kw name="Create List" library="BuiltIn">
-<var>@{service_args}</var>
-<arg>--log-path=chromedriver.log</arg>
-<arg>service=${path_exe}</arg>
-<doc>Returns a list containing given items.</doc>
-<msg timestamp="20230320 09:00:11.066" level="INFO">@{service_args} = [ --log-path=chromedriver.log | service=C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe ]</msg>
-<status status="PASS" starttime="20230320 09:00:11.065" endtime="20230320 09:00:11.067"/>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<arg>executable_path=E:/Selenium-3.6/chrome111</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230320 10:37:03.424" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230320 10:37:03.427" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20230320 10:37:03.428" level="FAIL">AttributeError: 'Service' object has no attribute 'process'</msg>
+<status status="FAIL" starttime="20230320 10:37:03.424" endtime="20230320 10:37:03.435"/>
 </kw>
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>url=${url}</arg>
-<arg>browser=chrome</arg>
-<arg>options=${chrome_options}</arg>
-<arg>executable_path= ${cpath}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230320 09:00:11.070" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com'.</msg>
-<msg timestamp="20230320 09:00:11.076" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg timestamp="20230320 09:00:11.078" level="FAIL">WebDriverException: Message: 'chromedriver.exe' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
-</msg>
-<status status="FAIL" starttime="20230320 09:00:11.068" endtime="20230320 09:00:11.086"/>
+<status status="FAIL" starttime="20230320 10:37:03.411" endtime="20230320 10:37:03.436"/>
 </kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>${url}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" starttime="20230320 09:00:11.087" endtime="20230320 09:00:11.088"/>
+<kw name="open search engine">
+<status status="NOT RUN" starttime="20230320 10:37:03.436" endtime="20230320 10:37:03.437"/>
 </kw>
-<status status="FAIL" starttime="20230320 09:00:09.717" endtime="20230320 09:00:11.089"/>
+<kw name="enter search term">
+<arg>juke box</arg>
+<status status="NOT RUN" starttime="20230320 10:37:03.437" endtime="20230320 10:37:03.437"/>
 </kw>
-<status status="FAIL" starttime="20230320 09:00:07.746" endtime="20230320 09:00:11.090">WebDriverException: Message: 'chromedriver.exe' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
-</status>
+<status status="FAIL" starttime="20230320 10:37:03.409" endtime="20230320 10:37:03.438">AttributeError: 'Service' object has no attribute 'process'</status>
 </test>
 <doc>sample github ci tests</doc>
-<status status="FAIL" starttime="20230320 09:00:07.360" endtime="20230320 09:00:11.093"/>
+<status status="FAIL" starttime="20230320 10:37:02.911" endtime="20230320 10:37:03.441"/>
 </suite>
-<status status="FAIL" starttime="20230320 09:00:07.352" endtime="20230320 09:00:11.097"/>
+<status status="FAIL" starttime="20230320 10:37:02.905" endtime="20230320 10:37:03.446"/>
 </suite>
-<status status="FAIL" starttime="20230320 09:00:07.343" endtime="20230320 09:00:11.103"/>
+<status status="FAIL" starttime="20230320 10:37:02.899" endtime="20230320 10:37:03.452"/>
 </suite>
-<status status="FAIL" starttime="20230320 09:00:07.306" endtime="20230320 09:00:11.107"/>
+<status status="FAIL" starttime="20230320 10:37:02.866" endtime="20230320 10:37:03.455"/>
 </suite>
 <statistics>
 <total>

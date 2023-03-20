@@ -7,6 +7,7 @@ from selenium.webdriver import Firefox
 from webdriver_manager.microsoft import EdgeChromiumDriver
 from webdriver_manager.chrome import ChromeDriverManager  # webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.chrome import DownloadManager
+from webdriver_manager.firefox import GeckoDriverManager
 # from webdriver_manager.gecko import GeckoDriverManager  # .firefox import GeckoDriverManager
 from selenium.webdriver.chrome.service import Service
 
@@ -20,6 +21,9 @@ def get_manager_chrome_path():
     # return driver_path
     return ChromeDriverManager().install()
 
+@keyword
+def get_manager_firefox_path():
+    return GeckoDriverManager().install()
 
 @keyword('open browser window')
 def open_browser(browser='',url=''):

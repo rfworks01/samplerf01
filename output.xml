@@ -1,115 +1,309 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.10 on win32)" generated="20230319 21:55:22.432" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.10.10 on win32)" generated="20230320 11:12:31.776" rpa="false" schemaversion="3">
 <suite id="s1" name="Suite01" source="E:\VS-CodeProject\py2023\Git-samples\robot-sample01\Tests\sample\suite01.robot">
-<kw name="start chrome with options" type="SETUP">
+<test id="s1-t1" name="open chrome when using create driver" line="21">
+<kw name="start chrome with options">
 <kw name="Evaluate" library="BuiltIn">
 <var>${chrome_options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230319 21:55:22.869" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001712D5CA0B0&gt;</msg>
-<status status="PASS" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.869"/>
+<msg timestamp="20230320 11:12:36.501" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001C33E647280&gt;</msg>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:36.501"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--log-level\=3</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.869"/>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:36.501"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--start-maximized</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.869"/>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:36.501"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size\=800,600</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.869"/>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:36.501"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--remote-allow-origins\=*</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.869"/>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:36.501"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-notifications</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.869"/>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:36.501"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-infobars</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.869"/>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:36.501"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.869"/>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:36.501"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-extensions</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.869"/>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:36.501"/>
 </kw>
 <kw name="Create Webdriver" library="SeleniumLibrary">
 <arg>Chrome</arg>
 <arg>chrome_options=${chrome_options}</arg>
+<arg>executable_path=E:/Selenium-3.6/chrome111/chromedriver.exe</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<msg timestamp="20230319 21:55:22.869" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<msg timestamp="20230319 21:55:22.885" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg timestamp="20230319 21:55:22.885" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
-</msg>
-<status status="FAIL" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.901"/>
+<msg timestamp="20230320 11:12:36.501" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:40.612"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" starttime="20230319 21:55:22.901" endtime="20230319 21:55:22.901"/>
+<msg timestamp="20230320 11:12:40.612" level="INFO">Opening url 'https://www.google.com'</msg>
+<status status="PASS" starttime="20230320 11:12:40.612" endtime="20230320 11:12:42.930"/>
 </kw>
-<status status="FAIL" starttime="20230319 21:55:22.869" endtime="20230319 21:55:22.901"/>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:42.930"/>
 </kw>
-<test id="s1-t1" name="Search Google01" line="18">
-<status status="FAIL" starttime="20230319 21:55:22.901" endtime="20230319 21:55:22.901">Parent suite setup failed:
-WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
-</status>
+<kw name="open search engine">
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>20s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20230320 11:12:42.946" endtime="20230320 11:12:42.947"/>
+</kw>
+<status status="PASS" starttime="20230320 11:12:42.946" endtime="20230320 11:12:42.947"/>
+</kw>
+<kw name="enter search term">
+<arg>juke box</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>${data}\n</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230320 11:12:42.948" level="INFO">Typing text 'juke box
+' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20230320 11:12:42.948" endtime="20230320 11:12:48.192"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230320 11:12:51.204" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230320 11:12:48.193" endtime="20230320 11:12:51.204"/>
+</kw>
+<status status="PASS" starttime="20230320 11:12:42.947" endtime="20230320 11:12:51.204"/>
+</kw>
+<status status="PASS" starttime="20230320 11:12:36.501" endtime="20230320 11:12:51.205"/>
 </test>
-<test id="s1-t2" name="Search Google02" line="22">
-<status status="FAIL" starttime="20230319 21:55:22.901" endtime="20230319 21:55:22.901">Parent suite setup failed:
-WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
-</status>
+<test id="s1-t2" name="open chrome when using open browser" line="26">
+<kw name="open chrome using open browser">
+<kw name="Get Manager Chrome Path" library="BrowserManager">
+<var>${path_exe}</var>
+<msg timestamp="20230320 11:12:51.208" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230320 11:12:55.358" level="INFO">Get LATEST chromedriver version for google-chrome 111.0.5563</msg>
+<msg timestamp="20230320 11:12:56.131" level="INFO">Driver [C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe] found in cache</msg>
+<msg timestamp="20230320 11:12:56.131" level="INFO">${path_exe} = C:\Users\Aarav Awana\.wdm\drivers\chromedriver\win32\111.0.5563\chromedriver.exe</msg>
+<status status="PASS" starttime="20230320 11:12:51.208" endtime="20230320 11:12:56.132"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${path_exe}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230320 11:12:56.132" endtime="20230320 11:12:56.132"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${cpath}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230320 11:12:56.132" endtime="20230320 11:12:56.133"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230320 11:12:56.134" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001C33E6B9270&gt;</msg>
+<status status="PASS" starttime="20230320 11:12:56.133" endtime="20230320 11:12:56.134"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--log-level\=3</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 11:12:56.134" endtime="20230320 11:12:56.134"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 11:12:56.134" endtime="20230320 11:12:56.135"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size\=800,600</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 11:12:56.135" endtime="20230320 11:12:56.135"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--remote-allow-origins\=*</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 11:12:56.135" endtime="20230320 11:12:56.135"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 11:12:56.136" endtime="20230320 11:12:56.136"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-infobars</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 11:12:56.136" endtime="20230320 11:12:56.136"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 11:12:56.136" endtime="20230320 11:12:56.137"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-extensions</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230320 11:12:56.137" endtime="20230320 11:12:56.137"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=${url}</arg>
+<arg>browser=chrome</arg>
+<arg>options=${chrome_options}</arg>
+<arg>executable_path=${path_exe}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230320 11:12:56.139" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com'.</msg>
+<status status="PASS" starttime="20230320 11:12:56.137" endtime="20230320 11:13:00.768"/>
+</kw>
+<status status="PASS" starttime="20230320 11:12:51.207" endtime="20230320 11:13:00.768"/>
+</kw>
+<kw name="open search engine">
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>20s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20230320 11:13:00.768" endtime="20230320 11:13:00.770"/>
+</kw>
+<status status="PASS" starttime="20230320 11:13:00.768" endtime="20230320 11:13:00.770"/>
+</kw>
+<kw name="enter search term">
+<arg>selenium</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>${data}\n</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230320 11:13:00.771" level="INFO">Typing text 'selenium
+' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20230320 11:13:00.771" endtime="20230320 11:13:02.644"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230320 11:13:05.659" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230320 11:13:02.644" endtime="20230320 11:13:05.659"/>
+</kw>
+<status status="PASS" starttime="20230320 11:13:00.770" endtime="20230320 11:13:05.659"/>
+</kw>
+<status status="PASS" starttime="20230320 11:12:51.207" endtime="20230320 11:13:05.660"/>
 </test>
-<test id="s1-t3" name="Search Google03" line="26">
-<status status="FAIL" starttime="20230319 21:55:22.901" endtime="20230319 21:55:22.901">Parent suite setup failed:
-WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
-</status>
+<test id="s1-t3" name="open firefox when using open browser" line="31">
+<kw name="open firefox using open browser">
+<kw name="Get Manager Firefox Path" library="BrowserManager">
+<var>${ff_path}</var>
+<msg timestamp="20230320 11:13:05.662" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230320 11:13:09.648" level="INFO">Get LATEST geckodriver version for 111.0 firefox</msg>
+<msg timestamp="20230320 11:13:12.756" level="INFO">Driver [C:\Users\Aarav Awana\.wdm\drivers\geckodriver\win64\0.32\geckodriver.exe] found in cache</msg>
+<msg timestamp="20230320 11:13:12.757" level="INFO">[WDM] - Downloading:   0%|                                                                                                                             | 0.00/1.61k [00:00&lt;?, ?B/s][WDM] - Downloading: 16.9kB [00:00, 8.65MB/s]</msg>
+<msg timestamp="20230320 11:13:12.757" level="INFO">${ff_path} = C:\Users\Aarav Awana\.wdm\drivers\geckodriver\win64\0.32\geckodriver.exe</msg>
+<status status="PASS" starttime="20230320 11:13:05.662" endtime="20230320 11:13:12.757"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ff_path}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230320 11:13:12.757" endtime="20230320 11:13:12.758"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=${url}</arg>
+<arg>browser=headlessfirefox</arg>
+<arg>executable_path=${ff_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230320 11:13:12.759" level="INFO">Opening browser 'headlessfirefox' to base url 'https://www.google.com'.</msg>
+<msg timestamp="20230320 11:13:12.787" level="INFO">Firefox driver log is always forced to to: E:\VS-CodeProject\py2023\Git-samples\robot-sample01\geckodriver-4.log</msg>
+<status status="PASS" starttime="20230320 11:13:12.758" endtime="20230320 11:14:03.172"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>6s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230320 11:14:09.179" level="INFO">Slept 6 seconds</msg>
+<status status="PASS" starttime="20230320 11:14:03.172" endtime="20230320 11:14:09.179"/>
+</kw>
+<status status="PASS" starttime="20230320 11:13:05.662" endtime="20230320 11:14:09.179"/>
+</kw>
+<kw name="open search engine">
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>20s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20230320 11:14:09.179" endtime="20230320 11:14:09.198"/>
+</kw>
+<status status="PASS" starttime="20230320 11:14:09.179" endtime="20230320 11:14:09.199"/>
+</kw>
+<kw name="enter search term">
+<arg>selenium robot works</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>${data}\n</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230320 11:14:09.200" level="INFO">Typing text 'selenium robot works
+' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20230320 11:14:09.199" endtime="20230320 11:14:11.070"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230320 11:14:14.074" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230320 11:14:11.070" endtime="20230320 11:14:14.074"/>
+</kw>
+<status status="PASS" starttime="20230320 11:14:09.199" endtime="20230320 11:14:14.074"/>
+</kw>
+<status status="PASS" starttime="20230320 11:13:05.661" endtime="20230320 11:14:14.075"/>
 </test>
 <doc>sample github ci tests</doc>
-<status status="FAIL" starttime="20230319 21:55:22.432" endtime="20230319 21:55:22.901">Suite setup failed:
-WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
-</status>
+<status status="PASS" starttime="20230320 11:12:31.776" endtime="20230320 11:14:14.077"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="3" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="3" skip="0" id="s1" name="Suite01">Suite01</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Suite01">Suite01</stat>
 </suite>
 </statistics>
 <errors>
